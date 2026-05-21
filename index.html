@@ -931,6 +931,315 @@
 
 
     /* ══════════════════════════════════════
+       NEW SECTIONS — DYNAMIC LEARNING ENGINES & BRAND TICKER
+    ══════════════════════════════════════ */
+    .s-engines {
+      background: #f3f8fc; /* Beautiful light ice-blue tint background! */
+      padding: 95px 0;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      overflow: hidden;
+      position: relative;
+    }
+    .s-engines-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      position: relative;
+      z-index: 2;
+    }
+    .s-engines-left {
+      width: 42%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .s-engines-badge {
+      display: inline-block;
+      background: #0f172a; /* Slate 900 */
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    .s-engines-h2 {
+      font-size: 38px;
+      font-weight: 750;
+      color: #1e293b;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+    .s-engines-h2 .accent {
+      color: #0090ff; /* Glowing bright sky blue */
+      font-weight: 800;
+    }
+    .s-engines-mid {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+    .s-engines-metric {
+      padding-left: 20px;
+      position: relative;
+      text-align: left;
+    }
+    .s-engines-metric::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      border-left: 1px dotted #cbd5e1;
+    }
+    .s-engines-metric::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 28px;
+      width: 4px;
+      background: #0090ff;
+      border-radius: 2px;
+    }
+    .s-engines-num {
+      font-size: 42px;
+      font-weight: 800;
+      color: #7c3aed; /* Rich purple stats! */
+      line-height: 1;
+    }
+    .s-engines-desc {
+      font-size: 13.5px;
+      color: #475569;
+      line-height: 1.45;
+      margin: 8px 0 0 0;
+    }
+    .s-engines-right {
+      width: 28%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    
+    /* White awards card */
+    .s-engines-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 36px 28px;
+      width: 100%;
+      max-width: 320px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e2e8f0;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    
+    /* Badges row CSS recreation */
+    .s-engines-badges {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .award-seal {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      font-family: system-ui, -apple-system, sans-serif;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+    .award-seal.red-seal {
+      border: 2px dashed #dc2626;
+      background: #fff5f5;
+    }
+    .award-seal.blue-seal {
+      background: #1e3a8a;
+      color: #ffffff;
+      border: 2px solid #3b82f6;
+    }
+    .seal-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1;
+    }
+    .red-seal .seal-year {
+      font-size: 7px;
+      font-weight: 800;
+      color: #b91c1c;
+      letter-spacing: 0.05em;
+    }
+    .red-seal .seal-rank {
+      font-size: 11px;
+      font-weight: 900;
+      color: #b91c1c;
+      margin: 2px 0;
+    }
+    .red-seal .seal-category {
+      font-size: 5px;
+      font-weight: 700;
+      color: #ef4444;
+      max-width: 54px;
+    }
+    .blue-seal .seal-org {
+      font-size: 6px;
+      font-weight: 800;
+      color: #93c5fd;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .blue-seal .seal-stars {
+      color: #fbbf24;
+      font-size: 8px;
+      margin: 3px 0;
+    }
+    .blue-seal .seal-rating {
+      font-size: 11px;
+      font-weight: 900;
+      color: #ffffff;
+    }
+    
+    .s-engines-score {
+      font-size: 42px;
+      font-weight: 800;
+      color: #1e293b;
+      line-height: 1;
+      margin: 0 0 10px 0;
+    }
+    .s-engines-score-desc {
+      font-size: 13.5px;
+      color: #64748b;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* Decorative background lines/glows */
+    .s-engines::after {
+      content: '';
+      position: absolute;
+      right: -10%;
+      top: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0,144,255,0.06) 0%, rgba(0,144,255,0) 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ══════════════════════════════════════
+       BRAND LOGO TICKER
+    ══════════════════════════════════════ */
+    .s-ticker {
+      background: #ffffff;
+      padding: 30px 0;
+      overflow: hidden;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .s-ticker-track {
+      display: flex;
+      width: max-content;
+      animation: scroll-ticker 28s linear infinite;
+    }
+    .s-ticker-item {
+      font-size: 17px;
+      font-weight: 700;
+      color: #94a3b8; /* Slate-400 */
+      padding: 0 45px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+    .s-ticker-item span {
+      color: #cbd5e1;
+    }
+    .s-ticker-item.harmony {
+      color: #4f46e5; /* Indigo */
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .s-ticker-item.harmony span {
+      color: #dc2626; /* Red heart */
+    }
+    .s-ticker-item.workforce {
+      color: #0f766e; /* Teal */
+    }
+    .s-ticker-item.luxestay {
+      color: #ea580c; /* Orange */
+    }
+    .s-ticker-item.horizons {
+      color: #0369a1; /* Blue */
+    }
+    .s-ticker-item.horizons span {
+      color: #0284c7;
+      font-weight: 800;
+    }
+    @keyframes scroll-ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 992px) {
+      .s-engines {
+        padding: 60px 0;
+      }
+      .s-engines-container {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+      }
+      .s-engines-left {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        padding: 0 16px;
+        box-sizing: border-box;
+      }
+      .s-engines-h2 {
+        font-size: 28px;
+      }
+      .s-engines-mid {
+        width: 100%;
+        max-width: 480px;
+        flex-direction: row;
+        justify-content: center;
+        gap: 32px;
+      }
+      .s-engines-metric {
+        width: 50%;
+      }
+      .s-engines-right {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .s-engines-mid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .s-engines-metric {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+
+
+    /* ══════════════════════════════════════
        SECTION 09, 10 — UNCHANGED
     ══════════════════════════════════════ */
 
@@ -1353,6 +1662,99 @@
 
     </div>
 
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     NEW SECTION — DYNAMIC LEARNING ENGINES
+══════════════════════════════════════ -->
+<section class="s-engines">
+  <div class="wrap s-engines-container">
+    
+    <!-- Left Column -->
+    <div class="s-engines-left">
+      <div class="s-engines-badge">Going beyond the LMS</div>
+      <h2 class="s-engines-h2">Turning static systems into <span class="accent">dynamic learning</span> engines.</h2>
+    </div>
+
+    <!-- Middle Column (Metrics Stack) -->
+    <div class="s-engines-mid">
+      
+      <div class="s-engines-metric">
+        <div class="s-engines-num">3X</div>
+        <p class="s-engines-desc">Faster skill ramp-up time with adaptive learning paths</p>
+      </div>
+
+      <div class="s-engines-metric">
+        <div class="s-engines-num">90%</div>
+        <p class="s-engines-desc">Of learners say AI-personalized content helps them apply training faster</p>
+      </div>
+
+    </div>
+
+    <!-- Right Column (White Awards Card) -->
+    <div class="s-engines-right">
+      <div class="s-engines-card">
+        
+        <!-- CSS award badges row -->
+        <div class="s-engines-badges">
+          
+          <div class="award-seal red-seal" title="Talented Learning Top 10 Learning Ops Systems 2025">
+            <div class="seal-inner">
+              <span class="seal-year">2025</span>
+              <span class="seal-rank">TOP 10</span>
+              <span class="seal-category">LEARNING OPS SYSTEMS</span>
+            </div>
+          </div>
+
+          <div class="award-seal blue-seal" title="eLearning Industry 4.8 Rating">
+            <div class="seal-inner">
+              <span class="seal-org">elearning</span>
+              <div class="seal-stars">★★★★★</div>
+              <span class="seal-rating">4.8</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="s-engines-score">4.6/5</div>
+        <p class="s-engines-score-desc">Trusted by industry analysts for enabling unified training delivery at scale.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     NEW SECTION — SCROLLING CLIENT TICKER
+══════════════════════════════════════ -->
+<section class="s-ticker">
+  <div class="s-ticker-track">
+    <!-- Duplicate 1 -->
+    <div class="s-ticker-item">Tier One Careers</div>
+    <div class="s-ticker-item harmony">HARMONY <span>♥</span> CARE</div>
+    <div class="s-ticker-item workforce">⚙ WORKFORCE <span>& TECHNOLOGY</span></div>
+    <div class="s-ticker-item luxestay">LUXESTAY</div>
+    <div class="s-ticker-item horizons">Great Horizons <span>LEARNING</span></div>
+    <div class="s-ticker-item horizons">Horizon <span>Wealth Management</span></div>
+    
+    <!-- Duplicate 2 for seamless looping -->
+    <div class="s-ticker-item">Tier One Careers</div>
+    <div class="s-ticker-item harmony">HARMONY <span>♥</span> CARE</div>
+    <div class="s-ticker-item workforce">⚙ WORKFORCE <span>& TECHNOLOGY</span></div>
+    <div class="s-ticker-item luxestay">LUXESTAY</div>
+    <div class="s-ticker-item horizons">Great Horizons <span>LEARNING</span></div>
+    <div class="s-ticker-item horizons">Horizon <span>Wealth Management</span></div>
+
+    <!-- Duplicate 3 to handle extremely wide displays -->
+    <div class="s-ticker-item">Tier One Careers</div>
+    <div class="s-ticker-item harmony">HARMONY <span>♥</span> CARE</div>
+    <div class="s-ticker-item workforce">⚙ WORKFORCE <span>& TECHNOLOGY</span></div>
+    <div class="s-ticker-item luxestay">LUXESTAY</div>
+    <div class="s-ticker-item horizons">Great Horizons <span>LEARNING</span></div>
+    <div class="s-ticker-item horizons">Horizon <span>Wealth Management</span></div>
   </div>
 </section>
 
