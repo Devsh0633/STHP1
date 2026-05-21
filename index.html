@@ -256,7 +256,7 @@
       position: relative;
       overflow: hidden;
       display: flex;
-      align-items: flex-end;
+      align-items: center; /* Center vertically to completely fill the section */
       justify-content: center; /* Center the massive grid horizontally */
     }
     .s06-grid {
@@ -267,7 +267,6 @@
       z-index: 1;
       width: max-content;
       margin: 0 auto;
-      padding-bottom: 24px;
       
       /* Premium CSS Mask-Image to fade grid transparency on the left and right */
       /* This makes the grid transparent behind the text, without drawing a dark overlay on top! */
@@ -922,7 +921,7 @@ const ICON_MAP = {
 
 const gridEl = document.getElementById('s06grid');
 const ALL_INTEGRATIONS = ROWS.flat();
-const TOTAL_TILES = 120; // 24 columns * 5 rows = 120 tiles!
+const TOTAL_TILES = 192; // 24 columns * 8 rows = 192 tiles!
 const displayList = [];
 for (let i = 0; i < TOTAL_TILES; i++) {
   displayList.push(ALL_INTEGRATIONS[i % ALL_INTEGRATIONS.length]);
