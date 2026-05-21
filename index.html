@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SimpliTrain — #1 Unified Learning Platform built by L&D professionals</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.0.0/tabler-icons.min.css"/>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is training management software?","acceptedAnswer":{"@type":"Answer","text":"Training management software (TMS) helps training companies manage scheduling, instructors, cohorts, resources, and operations in one platform. It streamlines administrative tasks and improves the efficiency of delivering training programs at scale."}},
+    {"@type":"Question","name":"How is SimpliTrain different from a traditional LMS?","acceptedAnswer":{"@type":"Answer","text":"A traditional LMS focuses primarily on content delivery and eLearning. SimpliTrain goes beyond that by combining LMS + TMS + LXP capabilities—helping you manage operations, instructor-led training, revenue, and business growth from a single platform."}},
+    {"@type":"Question","name":"What makes SimpliTrain different from other training management software?","acceptedAnswer":{"@type":"Answer","text":"Most TMS platforms focus only on operations. SimpliTrain is designed as a Training Intelligence Platform combining: Training operations (TMS), Learning delivery (LMS), Growth tools (CRM, marketing, commerce), and Revenue and performance insights."}},
+    {"@type":"Question","name":"Can SimpliTrain support instructor-led and hybrid training?","acceptedAnswer":{"@type":"Answer","text":"Yes. SimpliTrain is built for Instructor-Led Training (ILT), virtual classrooms, and hybrid delivery models. You can manage cohorts, schedules, trainers, and attendance—all in one place."}},
+    {"@type":"Question","name":"Is SimpliTrain suitable for multi-location or franchise training businesses?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. SimpliTrain supports multi-location and multi-tenant (franchise) training models, allowing you to manage multiple centers, partners, or regions from a single platform while maintaining control and standardization."}},
+    {"@type":"Question","name":"Can I sell courses and manage payments using SimpliTrain?","acceptedAnswer":{"@type":"Answer","text":"Yes. SimpliTrain includes built-in ecommerce capabilities: create course catalogs, offer subscriptions and bundles, manage pricing and discounts, and handle payments and invoicing."}},
+    {"@type":"Question","name":"How does SimpliTrain help grow my training business?","acceptedAnswer":{"@type":"Answer","text":"SimpliTrain includes integrated tools for lead management (CRM), email campaigns and marketing automation, affiliate and partner management, and landing pages and SEO optimization."}},
+    {"@type":"Question","name":"Does SimpliTrain provide reporting and analytics?","acceptedAnswer":{"@type":"Answer","text":"Yes. SimpliTrain offers training intelligence dashboards that help you track revenue performance, trainer utilization, cohort profitability, enrollment trends, and drop-offs and learner engagement."}},
+    {"@type":"Question","name":"Can SimpliTrain integrate with my existing LMS or tools?","acceptedAnswer":{"@type":"Answer","text":"Yes. SimpliTrain is designed to work alongside your existing systems. You can integrate external content (SCORM) and connect with your current tools without needing to replace everything."}},
+    {"@type":"Question","name":"Is SimpliTrain suitable for small and growing training companies?","acceptedAnswer":{"@type":"Answer","text":"Yes. SimpliTrain is designed for training academies at every stage of growth—from small teams launching their first programs to large organizations managing global training operations."}}
+  ]}
+  </script>
+
+  <style>
+    /* ── RESET ── */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',system-ui,-apple-system,Arial,sans-serif;color:#111827;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+
+    /* ── TOKENS ── */
+    :root{
+      --blue:#1A52A0;
+      --teal:#00BFB3;
+      --dark:#111827;
+      --gray:#6B7280;
+      --light-blue:#EBF3FF;
+      --light-teal:#E6FAFA;
+      --light-gray:#F9FAFB;
+      --white:#FFFFFF;
+      --border:#E5E7EB;
+      --gold:#C9A227;
+      --max-w:1200px;
+      --r-card:12px;
+      --r-btn:8px;
+      --r-pill:20px;
+      --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.05);
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary{display:inline-flex;align-items:center;gap:6px;background:var(--blue);color:#fff;padding:14px 28px;border-radius:var(--r-btn);font-size:15px;font-weight:600;border:none;cursor:pointer;transition:background 150ms ease,transform 100ms ease}
+    .btn-primary:hover{background:#163F80;transform:translateY(-1px)}
+    .btn-secondary{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--blue);padding:14px 28px;border-radius:var(--r-btn);font-size:15px;font-weight:600;border:1.5px solid var(--blue);cursor:pointer;transition:background 150ms ease,transform 100ms ease}
+    .btn-secondary:hover{background:var(--light-blue);transform:translateY(-1px)}
+    .btn-dark{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#111827;padding:14px 28px;border-radius:var(--r-btn);font-size:15px;font-weight:600;border:none;cursor:pointer;transition:background 150ms ease,transform 100ms ease}
+    .btn-dark:hover{background:#f0f0f0;transform:translateY(-1px)}
+    .btn-ghost-white{display:inline-flex;align-items:center;gap:6px;background:transparent;color:#fff;padding:14px 28px;border-radius:var(--r-btn);font-size:15px;font-weight:600;border:1.5px solid #fff;cursor:pointer;transition:background 150ms ease,color 150ms ease,transform 100ms ease}
+    .btn-ghost-white:hover{background:#fff;color:#111827;transform:translateY(-1px)}
+    .btn-teal{display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:#fff;padding:14px 28px;border-radius:var(--r-btn);font-size:15px;font-weight:600;border:none;cursor:pointer;transition:background 150ms ease,transform 100ms ease}
+    .btn-teal:hover{background:#009e93;transform:translateY(-1px)}
+
+    .wrap{max-width:var(--max-w);margin:0 auto;padding:0 32px}
+
+
+    /* ══════════════════════════════════════
+       SECTION 01 — NAV (UNCHANGED)
+    ══════════════════════════════════════ */
+    /* SECTION 01: NAV — UNCHANGED. Keep existing Elementor implementation. */
+
+
+    /* ══════════════════════════════════════
+       SECTION 02 — HERO  (dark navy bg, matching design ref image)
+    ══════════════════════════════════════ */
+    .s02{background:#0B1628;padding:90px 0 80px;overflow:hidden;position:relative}
+    .s02::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 70% 50%,rgba(26,82,160,.25) 0%,transparent 70%);pointer-events:none}
+    .s02-inner{display:grid;grid-template-columns:55% 45%;gap:56px;align-items:center;position:relative}
+    .s02-eyebrow{display:inline-block;background:rgba(255,255,255,.12);color:#fff;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:var(--r-pill);margin-bottom:20px}
+    .s02-h1{font-size:52px;font-weight:800;color:#fff;line-height:1.12;letter-spacing:-.02em}
+    .s02-h1 .accent{color:var(--teal)}
+    .s02-sub{font-size:18px;font-weight:400;color:#9CA3AF;line-height:1.7;max-width:500px;margin-top:20px}
+    .s02-cta-row{display:flex;gap:16px;align-items:center;margin-top:32px;flex-wrap:wrap}
+    .s02-right{position:relative}
+    .s02-dash{width:100%;border-radius:14px;box-shadow:0 24px 64px rgba(0,0,0,.5);background:linear-gradient(135deg,#1e3a6e 0%,#0f2347 100%);min-height:340px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;overflow:hidden}
+    .s02-dash-bar{width:100%;height:48px;background:rgba(255,255,255,.07);display:flex;align-items:center;padding:0 20px;gap:12px;position:absolute;top:0}
+    .s02-dash-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.2)}
+    .s02-dash-label{color:rgba(255,255,255,.5);font-size:13px}
+    .s02-dash-body{padding:60px 24px 24px;width:100%}
+    .s02-stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+    .s02-stat{background:rgba(255,255,255,.06);border-radius:8px;padding:14px;border:1px solid rgba(255,255,255,.08)}
+    .s02-stat-num{font-size:22px;font-weight:700;color:#fff}
+    .s02-stat-lab{font-size:11px;color:rgba(255,255,255,.4);margin-top:2px}
+    .s02-stat-num.teal{color:var(--teal)}
+    .s02-panels{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .s02-panel{background:rgba(255,255,255,.06);border-radius:8px;padding:14px;border:1px solid rgba(255,255,255,.08)}
+    .s02-panel-title{font-size:11px;color:rgba(255,255,255,.4);margin-bottom:8px}
+    .s02-bar-wrap{display:flex;flex-direction:column;gap:6px}
+    .s02-bar-row{display:flex;align-items:center;gap:8px}
+    .s02-bar-label{font-size:10px;color:rgba(255,255,255,.4);width:80px;flex-shrink:0}
+    .s02-bar-track{flex:1;height:6px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden}
+    .s02-bar-fill{height:100%;border-radius:3px}
+    .s02-bar-pct{font-size:10px;color:rgba(255,255,255,.5);width:36px;text-align:right}
+
+
+    /* ══════════════════════════════════════
+       SECTION 03 — FEATURE TABS  (soft lavender bg, matching design ref)
+    ══════════════════════════════════════ */
+    .s03{background:#F5F0FB;padding:100px 0}
+    .s03-head{text-align:center;margin-bottom:56px}
+    .s03-eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);background:var(--light-teal);padding:4px 12px;border-radius:var(--r-pill);margin-bottom:12px}
+    .s03-h2{font-size:38px;font-weight:700;color:var(--dark);line-height:1.2}
+    .s03-h2 .g1{color:#FF6B6B}
+    .s03-h2 .g2{color:#A855F7}
+
+    /* Tab strip */
+    .s03-strip{display:flex;border-bottom:2px solid #E2D9F3;gap:0;overflow-x:auto}
+    .s03-tab{background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;padding:13px 28px;font-size:15px;font-weight:500;color:#6B7280;cursor:pointer;white-space:nowrap;transition:color 150ms}
+    .s03-tab:hover{color:var(--dark)}
+    .s03-tab.active{font-weight:700;color:var(--dark);border-bottom-color:var(--teal)}
+
+    /* Panel */
+    .s03-panel{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:48px;opacity:1;transition:opacity 200ms ease}
+    .s03-panel.fading{opacity:0}
+    .s03-cat{font-size:13px;font-weight:700;color:#A855F7;margin-bottom:14px;letter-spacing:.04em}
+    .s03-ph2{font-size:34px;font-weight:700;color:var(--dark);line-height:1.2}
+    .s03-pdesc{font-size:16px;color:#6B7280;line-height:1.75;margin-top:14px}
+    .s03-bullets{list-style:none;margin-top:24px}
+    .s03-bullets li{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #E2D9F3;font-size:15px;color:var(--dark)}
+    .s03-bullets li:last-child{border-bottom:none}
+    .s03-bullets .ck{color:var(--teal);font-size:18px;flex-shrink:0}
+    .s03-pcta{display:inline-flex;align-items:center;gap:4px;color:var(--blue);font-weight:600;font-size:15px;margin-top:24px}
+    .s03-pcta:hover{text-decoration:underline}
+
+    .s03-imgcard{background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(120,80,200,.12);overflow:hidden}
+    .s03-imgcard-inner{height:360px;background:linear-gradient(135deg,#ede8fb 0%,#d4c8f5 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:32px}
+    .s03-imgcard-bar{width:100%;height:36px;background:rgba(255,255,255,.7);border-radius:8px;display:flex;align-items:center;padding:0 14px;gap:10px}
+    .s03-imgcard-dot{width:8px;height:8px;border-radius:50%}
+    .s03-imgcard-rows{width:100%;display:flex;flex-direction:column;gap:8px;margin-top:10px}
+    .s03-imgcard-row{background:rgba(255,255,255,.6);border-radius:6px;height:28px}
+    .s03-imgcard-row.wide{width:100%}
+    .s03-imgcard-row.med{width:75%}
+    .s03-imgcard-row.short{width:50%}
+
+    /* Mobile accordion */
+    .s03-mob{display:none;margin-top:32px}
+    .s03-mob-item{border-bottom:1px solid #E2D9F3}
+    .s03-mob-trigger{width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 0;background:none;border:none;font-size:16px;font-weight:600;color:var(--dark);cursor:pointer}
+    .s03-mob-trigger .ti{transition:transform 250ms ease;color:#9CA3AF}
+    .s03-mob-trigger.open .ti{transform:rotate(180deg)}
+    .s03-mob-body{max-height:0;overflow:hidden;transition:max-height 300ms ease}
+    .s03-mob-body.open{max-height:900px}
+    .s03-mob-content{padding-bottom:24px}
+
+
+    /* ══════════════════════════════════════
+       SECTION 04 — VALUE PROPS  (white, clean icon cards)
+    ══════════════════════════════════════ */
+    .s04{background:#fff;padding:100px 0;border-top:1px solid var(--border)}
+    .s04-ey{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);background:var(--light-teal);padding:4px 12px;border-radius:var(--r-pill)}
+    .s04-h2{font-size:38px;font-weight:700;color:var(--dark);line-height:1.2;margin-top:12px;max-width:560px}
+    .s04-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px}
+    .s04-card{padding:0}
+    .s04-icon{width:52px;height:52px;background:var(--light-teal);border-radius:12px;display:flex;align-items:center;justify-content:center}
+    .s04-icon .ti{font-size:26px;color:var(--teal)}
+    .s04-ch3{font-size:22px;font-weight:600;color:var(--dark);line-height:1.3;margin-top:20px}
+    .s04-cbody{font-size:15px;color:#6B7280;line-height:1.75;margin-top:10px}
+
+
+    /* ══════════════════════════════════════
+       SECTION 05 — GROWTH STAGES  (black bg, 3 photo cards)
+    ══════════════════════════════════════ */
+    .s05{background:#000;padding:100px 0 80px}
+    .s05-ey{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#9CA3AF}
+    .s05-h2{font-size:42px;font-weight:700;color:#fff;line-height:1.15;margin-top:14px;max-width:580px}
+    .s05-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+    .s05-card{}
+    .s05-photo{width:100%;height:220px;border-radius:10px;overflow:hidden;position:relative;background:#1a1a2e}
+    .s05-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,82,160,.35),rgba(0,191,179,.2));pointer-events:none}
+    .s05-photo-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:24px}
+    /* styled placeholder visuals */
+    .s05-photo-mockup{width:100%;height:100%;border-radius:6px;background:linear-gradient(135deg,#0f2347,#1a3a6e);display:flex;flex-direction:column;gap:8px;padding:16px}
+    .s05-mock-bar{height:8px;border-radius:4px;background:rgba(0,191,179,.4)}
+    .s05-mock-bar.w60{width:60%}
+    .s05-mock-bar.w80{width:80%}
+    .s05-mock-bar.w40{width:40%}
+    .s05-mock-row{display:flex;gap:8px;margin-top:4px}
+    .s05-mock-box{flex:1;height:40px;border-radius:6px;background:rgba(255,255,255,.08)}
+
+    .s05-label{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9CA3AF;margin-top:18px}
+    .s05-ch3{font-size:19px;font-weight:600;color:#fff;line-height:1.4;margin-top:5px}
+    .s05-cbody{font-size:14px;color:#9CA3AF;line-height:1.6;margin-top:6px}
+    .s05-cta-wrap{text-align:center;margin-top:52px}
+
+
+    /* ══════════════════════════════════════
+       SECTION 06 — INTEGRATIONS  (dark, colorful tile grid)
+    ══════════════════════════════════════ */
+    .s06{background:#111827;padding:80px 0;overflow:hidden;border-top:1px solid #1F2937}
+    .s06-layout{display:flex;align-items:center;gap:0}
+    .s06-left{flex-shrink:0;width:360px;padding-right:0;padding-left:max(32px,calc((100vw - 1200px)/2 + 32px))}
+    .s06-badge{display:inline-block;font-size:12px;font-weight:700;color:var(--teal);background:rgba(0,191,179,.12);padding:4px 14px;border-radius:var(--r-pill);letter-spacing:.08em;text-transform:uppercase}
+    .s06-h2{font-size:36px;font-weight:700;color:#fff;line-height:1.2;margin-top:18px}
+    .s06-sub{font-size:15px;color:#9CA3AF;line-height:1.75;margin-top:12px}
+    .s06-cta-link{margin-top:28px}
+    .s06-right{flex:1;overflow:hidden;position:relative;padding:0 0 0 40px}
+    .s06-right::before{content:'';position:absolute;left:0;top:0;bottom:0;width:80px;background:linear-gradient(to right,#111827,transparent);z-index:3;pointer-events:none}
+    .s06-rows{display:flex;flex-direction:column;gap:10px}
+    .s06-row{display:flex;gap:10px;width:max-content}
+    .s06-row:nth-child(odd){animation:scroll-l 35s linear infinite}
+    .s06-row:nth-child(even){animation:scroll-r 38s linear infinite}
+    @keyframes scroll-l{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @keyframes scroll-r{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+    .s06-tile{min-width:148px;height:54px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;padding:0 16px;white-space:nowrap;flex-shrink:0;user-select:none}
+    .s06-tile.dk{color:#111}
+
+
+    /* ══════════════════════════════════════
+       SECTION 07 — USE CASES (UNCHANGED)
+    ══════════════════════════════════════ */
+    /* SECTION 07: USE CASES — UNCHANGED. Keep existing pill/tag navigation. */
+
+
+    /* ══════════════════════════════════════
+       SECTION 08 — BLOG  (dark left + 2x2 card grid right)
+    ══════════════════════════════════════ */
+    .s08{display:flex;min-height:460px}
+    .s08-left{width:35%;background:#0B1628;padding:64px 56px;display:flex;flex-direction:column;justify-content:center}
+    .s08-lh2{font-size:36px;font-weight:700;color:#fff;line-height:1.35}
+    .s08-lcta{margin-top:32px;width:fit-content}
+    .s08-right{width:65%;background:#F3F4F6;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:18px;align-content:center}
+    .s08-card{background:#fff;border:1px solid #E5E7EB;border-radius:12px;padding:14px;cursor:pointer;transition:box-shadow 200ms ease,transform 200ms ease}
+    .s08-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.1);transform:translateY(-2px)}
+    .s08-thumb{width:100%;height:150px;border-radius:8px;overflow:hidden;background:var(--light-blue)}
+    .s08-thumb-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;color:#9CA3AF;transition:transform 200ms ease;text-align:center;padding:12px}
+    .s08-card:hover .s08-thumb-inner{transform:scale(1.04)}
+    /* colored thumbnail backgrounds */
+    .s08-thumb.c1{background:linear-gradient(135deg,#EBF3FF,#C7D9F5)}
+    .s08-thumb.c2{background:linear-gradient(135deg,#E6FAFA,#B8EEE9)}
+    .s08-thumb.c3{background:linear-gradient(135deg,#FFF3E0,#FFD9A8)}
+    .s08-thumb.c4{background:linear-gradient(135deg,#F3E8FF,#DCC6F5)}
+    .s08-badge{display:inline-block;margin-top:12px;padding:2px 10px;border-radius:var(--r-pill);background:var(--light-teal);color:var(--teal);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em}
+    .s08-title{margin-top:8px;font-size:15px;font-weight:600;color:var(--dark);line-height:1.4}
+    .s08-card:hover .s08-title{text-decoration:underline}
+
+
+    /* ══════════════════════════════════════
+       SECTION 09, 10 — UNCHANGED
+    ══════════════════════════════════════ */
+
+    /* ══════════════════════════════════════
+       SECTION 11 — FAQs
+    ══════════════════════════════════════ */
+    .s11{background:#F9FAFB;padding:100px 0}
+    .s11-head{text-align:center}
+    .s11-ey{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);background:var(--light-teal);padding:4px 12px;border-radius:var(--r-pill)}
+    .s11-h2{font-size:38px;font-weight:700;color:var(--dark);margin-top:12px}
+    .s11-acc{max-width:760px;margin:48px auto 0}
+    .s11-item{border-bottom:1px solid #E5E7EB}
+    .s11-q{display:flex;justify-content:space-between;align-items:center;padding:22px 0;cursor:pointer;user-select:none}
+    .s11-qt{font-size:17px;font-weight:600;color:var(--dark);flex:1;padding-right:20px;line-height:1.4}
+    .s11-chev{font-size:20px;color:#9CA3AF;transition:transform 250ms ease;flex-shrink:0}
+    .s11-item.open .s11-chev{transform:rotate(180deg)}
+    .s11-abody{max-height:0;overflow:hidden;transition:max-height 250ms ease}
+    .s11-item.open .s11-abody{max-height:500px}
+    .s11-atext{padding:0 0 22px;font-size:16px;color:#6B7280;line-height:1.75}
+
+    /* ══════════════════════════════════════
+       SECTIONS 12, 13 — UNCHANGED
+    ══════════════════════════════════════ */
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media(max-width:1024px){
+      .s02{padding:60px 0}
+      .s02-inner{grid-template-columns:1fr 1fr;gap:36px}
+      .s02-h1{font-size:40px}
+      .s03,.s04,.s05,.s11{padding:60px 0}
+      .s03-h2,.s04-h2,.s05-h2,.s11-h2{font-size:30px}
+      .s04-grid{grid-template-columns:repeat(2,1fr)}
+      .s05-grid{grid-template-columns:repeat(2,1fr)}
+      .s06-left{width:280px}
+      .s06-h2{font-size:28px}
+    }
+    @media(max-width:768px){
+      .s02{padding:40px 0}
+      .s02-inner{grid-template-columns:1fr}
+      .s02-h1{font-size:34px}
+      .s02-sub{font-size:16px}
+      .s02-stat-row{grid-template-columns:repeat(2,1fr)}
+      .s03{padding:40px 0}
+      .s03-h2{font-size:26px}
+      .s03-strip{display:none}
+      .s03-panel{display:none}
+      .s03-mob{display:block}
+      .s04{padding:40px 0}
+      .s04-h2{font-size:26px}
+      .s04-grid{grid-template-columns:1fr}
+      .s05{padding:40px 0}
+      .s05-h2{font-size:28px}
+      .s05-grid{grid-template-columns:1fr}
+      .s06{padding:40px 0}
+      .s06-layout{flex-direction:column}
+      .s06-left{width:100%;padding-left:32px;padding-right:32px}
+      .s06-right{width:100%;padding-left:0;margin-top:32px}
+      .s06-h2{font-size:26px}
+      .s08{flex-direction:column}
+      .s08-left{width:100%;padding:40px 24px}
+      .s08-right{width:100%;padding:24px}
+      .s08-lh2{font-size:28px}
+      .s11{padding:40px 0}
+      .s11-h2{font-size:26px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ S01: NAV — UNCHANGED. Keep existing Elementor implementation. ══ -->
+
+
+<!-- ══════════════════════════════════════
+     SECTION 02 — HERO
+══════════════════════════════════════ -->
+<section class="s02">
+  <div class="wrap">
+    <div class="s02-inner">
+
+      <!-- Left -->
+      <div>
+        <span class="s02-eyebrow">Going beyond the LMS</span>
+        <h1 class="s02-h1">Outgrowing your Training Management Platform? <span class="accent">You're Not Alone.</span></h1>
+        <p class="s02-sub">When scheduling is no longer your biggest challenge, it's time for a system that helps you understand and grow your training business — not just manage it.</p>
+        <div class="s02-cta-row">
+          <a href="/request-a-demo/" class="btn-teal">Book a demo →</a>
+        </div>
+      </div>
+
+      <!-- Right: styled dashboard mockup -->
+      <div class="s02-right">
+        <div class="s02-dash">
+          <div class="s02-dash-bar">
+            <div class="s02-dash-dot"></div><div class="s02-dash-dot"></div><div class="s02-dash-dot"></div>
+            <span class="s02-dash-label" style="margin-left:8px;color:rgba(0,191,179,.8);font-weight:600;font-size:12px">SimpliTrain</span>
+            <span class="s02-dash-label" style="margin-left:auto">Home &nbsp;·&nbsp; Admin &nbsp;·&nbsp; Course Catalog</span>
+          </div>
+          <div class="s02-dash-body">
+            <div class="s02-stat-row">
+              <div class="s02-stat"><div class="s02-stat-lab">Courses</div><div class="s02-stat-num">3,909</div></div>
+              <div class="s02-stat"><div class="s02-stat-lab">Users</div><div class="s02-stat-num teal">2,058</div></div>
+              <div class="s02-stat"><div class="s02-stat-lab">Class Enrolments</div><div class="s02-stat-num">1,027</div></div>
+              <div class="s02-stat"><div class="s02-stat-lab">Course Enrolments</div><div class="s02-stat-num">185</div></div>
+            </div>
+            <div class="s02-panels">
+              <div class="s02-panel">
+                <div class="s02-panel-title">COURSE COMPLETION</div>
+                <div class="s02-bar-wrap">
+                  <div class="s02-bar-row"><span class="s02-bar-label">In Progress</span><div class="s02-bar-track"><div class="s02-bar-fill" style="width:58%;background:var(--teal)"></div></div><span class="s02-bar-pct">28.6%</span></div>
+                  <div class="s02-bar-row"><span class="s02-bar-label">Completed</span><div class="s02-bar-track"><div class="s02-bar-fill" style="width:43%;background:#1A52A0"></div></div><span class="s02-bar-pct">42.9%</span></div>
+                  <div class="s02-bar-row"><span class="s02-bar-label">Expired</span><div class="s02-bar-track"><div class="s02-bar-fill" style="width:15%;background:#9CA3AF"></div></div><span class="s02-bar-pct">14.3%</span></div>
+                </div>
+              </div>
+              <div class="s02-panel">
+                <div class="s02-panel-title">RECENT ACTIVITY</div>
+                <div class="s02-bar-wrap">
+                  <div class="s02-bar-row"><span class="s02-bar-label">Sessions</span><div class="s02-bar-track"><div class="s02-bar-fill" style="width:70%;background:var(--teal)"></div></div><span class="s02-bar-pct">7 today</span></div>
+                  <div class="s02-bar-row"><span class="s02-bar-label">Logins</span><div class="s02-bar-track"><div class="s02-bar-fill" style="width:80%;background:#1A52A0"></div></div><span class="s02-bar-pct">20 today</span></div>
+                  <div class="s02-bar-row"><span class="s02-bar-label">Completions</span><div class="s02-bar-track"><div class="s02-bar-fill" style="width:50%;background:#6264A7"></div></div><span class="s02-bar-pct">10 today</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 03 — FEATURE TABS
+══════════════════════════════════════ -->
+<section class="s03">
+  <div class="wrap">
+
+    <div class="s03-head">
+      <div class="s03-eyebrow">Built for Training Companies</div>
+      <h2 class="s03-h2">Built for <span class="g1">Training</span> <span class="g2">Growth</span>, Not Just Course Scheduling</h2>
+    </div>
+
+    <!-- Tab strip (desktop) -->
+    <div class="s03-strip">
+      <button class="s03-tab active" data-idx="0">Course Launch</button>
+      <button class="s03-tab" data-idx="1">ILT &amp; Hybrid</button>
+      <button class="s03-tab" data-idx="2">Multi-Location</button>
+      <button class="s03-tab" data-idx="3">Commerce &amp; Revenue</button>
+    </div>
+
+    <!-- Panel (desktop) -->
+    <div class="s03-panel" id="s03panel"></div>
+
+    <!-- Accordion (mobile) -->
+    <div class="s03-mob" id="s03mob"></div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 04 — VALUE PROPS
+══════════════════════════════════════ -->
+<section class="s04">
+  <div class="wrap">
+    <span class="s04-ey">Why SimpliTrain</span>
+    <h2 class="s04-h2">Supercharge your learner count with SimpliTrain</h2>
+    <div class="s04-grid">
+
+      <div class="s04-card">
+        <div class="s04-icon"><i class="ti ti-tag"></i></div>
+        <h3 class="s04-ch3">Simplify pricing with flat-rate models</h3>
+        <p class="s04-cbody">Move beyond complex per-session or per-user pricing. Set up flat-rate pricing for cohorts, programs, or corporate training — making it easier to sell, easier to manage, and easier for your customers to say yes.</p>
+      </div>
+
+      <div class="s04-card">
+        <div class="s04-icon"><i class="ti ti-settings-automation"></i></div>
+        <h3 class="s04-ch3">Automate everyday workflows</h3>
+        <p class="s04-cbody">Reduce manual effort with automation across enrollments, scheduling, approvals, and communication — so nothing falls through the cracks.</p>
+      </div>
+
+      <div class="s04-card">
+        <div class="s04-icon"><i class="ti ti-headset"></i></div>
+        <h3 class="s04-ch3">Scale with managed services</h3>
+        <p class="s04-cbody">Offload operational overhead with managed services — from platform setup to ongoing support, we help you keep your training operations running smoothly at scale.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 05 — GROWTH STAGES
+══════════════════════════════════════ -->
+<section class="s05">
+  <div class="wrap">
+
+    <div class="s05-ey">Built for Every Stage of Growth</div>
+    <h2 class="s05-h2">Built for Training Academies at Every Stage of Growth</h2>
+
+    <div class="s05-grid">
+
+      <div class="s05-card">
+        <div class="s05-photo">
+          <div class="s05-photo-inner">
+            <div class="s05-photo-mockup">
+              <div class="s05-mock-bar w60"></div>
+              <div class="s05-mock-bar w80" style="background:rgba(26,82,160,.5)"></div>
+              <div class="s05-mock-row"><div class="s05-mock-box"></div><div class="s05-mock-box"></div></div>
+              <div class="s05-mock-row"><div class="s05-mock-box" style="background:rgba(0,191,179,.15)"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="s05-label">Start Fast</div>
+        <h3 class="s05-ch3">Start Fast</h3>
+        <p class="s05-cbody">Launch and manage your first cohorts with ease</p>
+      </div>
+
+      <div class="s05-card">
+        <div class="s05-photo">
+          <div class="s05-photo-inner">
+            <div class="s05-photo-mockup">
+              <div class="s05-mock-bar w80"></div>
+              <div class="s05-mock-row"><div class="s05-mock-box"></div><div class="s05-mock-box"></div><div class="s05-mock-box"></div></div>
+              <div class="s05-mock-bar w40" style="background:rgba(0,191,179,.5)"></div>
+              <div class="s05-mock-row"><div class="s05-mock-box" style="background:rgba(26,82,160,.2)"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="s05-label">Scale Your Academy</div>
+        <h3 class="s05-ch3">Scale Your Academy</h3>
+        <p class="s05-cbody">Add trainers, locations, and programs without chaos</p>
+      </div>
+
+      <div class="s05-card">
+        <div class="s05-photo">
+          <div class="s05-photo-inner">
+            <div class="s05-photo-mockup">
+              <div class="s05-mock-row"><div class="s05-mock-box"></div><div class="s05-mock-box"></div></div>
+              <div class="s05-mock-bar w80" style="background:rgba(0,191,179,.4)"></div>
+              <div class="s05-mock-bar w60" style="background:rgba(26,82,160,.4)"></div>
+              <div class="s05-mock-row"><div class="s05-mock-box"></div><div class="s05-mock-box"></div><div class="s05-mock-box"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="s05-label">Enterprise Level</div>
+        <h3 class="s05-ch3">Operate at Enterprise Level</h3>
+        <p class="s05-cbody">Gain full visibility and control across your training business</p>
+      </div>
+
+    </div>
+
+    <div class="s05-cta-wrap">
+      <a href="/pricing" class="btn-dark">Pick a plan that fits →</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 06 — INTEGRATIONS
+══════════════════════════════════════ -->
+<section class="s06">
+  <div class="s06-layout">
+    <div class="s06-left">
+      <span class="s06-badge">250+ Integrations</span>
+      <h2 class="s06-h2">Integrate Without Limits.</h2>
+      <p class="s06-sub">Integrate with your existing systems and extend SimpliTrain to support your unique workflows, delivery models, and growth needs.</p>
+      <a href="/integrations/" class="btn-ghost-white s06-cta-link">See all integrations →</a>
+    </div>
+    <div class="s06-right">
+      <div class="s06-rows" id="s06rows"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ S07: USE CASES — UNCHANGED. Keep existing pill/tag navigation. ══ -->
+
+
+<!-- ══════════════════════════════════════
+     SECTION 08 — BLOG / RESOURCES
+══════════════════════════════════════ -->
+<section class="s08">
+
+  <div class="s08-left">
+    <h2 class="s08-lh2">Get tips and inspiration for running and scaling your training business.</h2>
+    <a href="/blog" class="btn-ghost-white s08-lcta">Discover Tips →</a>
+  </div>
+
+  <div class="s08-right">
+
+    <div class="s08-card">
+      <div class="s08-thumb c1"><div class="s08-thumb-inner">AI-Powered LMS</div></div>
+      <span class="s08-badge">Featured</span>
+      <h3 class="s08-title">AI-Powered Personalization: The Future of LMS Platforms</h3>
+    </div>
+
+    <div class="s08-card">
+      <div class="s08-thumb c2"><div class="s08-thumb-inner">Tools Integration</div></div>
+      <span class="s08-badge">Product Tour</span>
+      <h3 class="s08-title">LMS that Works with Your Tools</h3>
+    </div>
+
+    <div class="s08-card">
+      <div class="s08-thumb c3"><div class="s08-thumb-inner">Accelerate Launch</div></div>
+      <span class="s08-badge">Services</span>
+      <h3 class="s08-title">Accelerate your LMS Launch</h3>
+    </div>
+
+    <div class="s08-card">
+      <div class="s08-thumb c4"><div class="s08-thumb-inner">SimpliTrain Use Cases</div></div>
+      <span class="s08-badge">Use Cases</span>
+      <h3 class="s08-title">Explore more ways to use SimpliTrain</h3>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ S09: TESTIMONIALS — UNCHANGED. Keep 'Real stories. Real impact.' section. ══ -->
+<!-- ══ S10: AI INSIGHTS — UNCHANGED. Keep 5 AI platform buttons. ══ -->
+
+
+<!-- ══════════════════════════════════════
+     SECTION 11 — FAQs
+══════════════════════════════════════ -->
+<section class="s11">
+  <div class="wrap">
+    <div class="s11-head">
+      <span class="s11-ey">Frequently Asked Questions</span>
+      <h2 class="s11-h2">FAQs</h2>
+    </div>
+    <div class="s11-acc" id="s11acc"></div>
+  </div>
+</section>
+
+
+<!-- ══ S12: FINAL CTA — UNCHANGED. Keep dual CTA section with awards badges. ══ -->
+<!-- ══ S13: FOOTER — UNCHANGED. Keep 5-column footer. ══ -->
+
+
+<script>
+/* ═══ S03: Tab data ═══ */
+const TABS = [
+  {
+    label:"Course Launch", cat:"Rapid Content Creation",
+    h2:"Launch new courses and programs without bottlenecks",
+    desc:"Eliminate the delays and friction that slow your team down. SimpliTrain gives you the tools to go from idea to live training — faster than ever.",
+    bullets:["Go from idea to course in days, not weeks","Standardize learning paths across programs","Maintain consistent quality across all content","Scale content creation without increasing effort"],
+    cta:{label:"Explore Course Authoring →",href:"/features/ai-course-authoring/"}
+  },
+  {
+    label:"ILT & Hybrid", cat:"Training Operations",
+    h2:"Run instructor-led and hybrid training at scale, seamlessly",
+    desc:"Manage every session, trainer, and venue from one place — whether you're running in-person, virtual, or hybrid programs.",
+    bullets:["Fill cohorts efficiently and reduce scheduling conflicts","Maximize trainer utilization across sessions","Deliver consistent learning experiences—online or offline","Eliminate manual coordination and last-minute firefighting"],
+    cta:{label:"Explore Training Management →",href:"/features/training-management/"}
+  },
+  {
+    label:"Multi-Location", cat:"Operational Control",
+    h2:"Streamline complexity across locations, teams, and workflows",
+    desc:"Whether you run one academy or many, SimpliTrain gives you full control with the flexibility to manage every center, team, and workflow centrally.",
+    bullets:["Manage multi-location and franchise operations with ease","Optimize use of trainers, classrooms, and resources","Automate repetitive workflows and reduce admin overhead","Keep every stakeholder aligned with real-time updates"],
+    cta:{label:"Explore Enterprise Learning →",href:"/features/enterprise-learning-software/"}
+  },
+  {
+    label:"Commerce & Revenue", cat:"Revenue Growth",
+    h2:"Monetize your programs with built-in commerce capabilities",
+    desc:"Turn your training expertise into a sustainable revenue engine. SimpliTrain's built-in commerce tools handle everything from storefront to payment.",
+    bullets:["Sell courses directly with a seamless buying experience","Increase revenue through bundles, subscriptions, and pricing strategies","Expand into corporate training and B2B deals","Simplify payments, invoicing, and financial tracking"],
+    cta:{label:"Explore eCommerce →",href:"/course-library/"}
+  }
+];
+
+function panelHTML(t){
+  const bullets = t.bullets.map(b=>`<li><i class="ti ti-circle-check ck"></i>${b}</li>`).join('');
+  return `
+    <div>
+      <div class="s03-cat">${t.cat}</div>
+      <h2 class="s03-ph2">${t.h2}</h2>
+      <p class="s03-pdesc">${t.desc}</p>
+      <ul class="s03-bullets">${bullets}</ul>
+      <a href="${t.cta.href}" class="s03-pcta">${t.cta.label}</a>
+    </div>
+    <div>
+      <div class="s03-imgcard">
+        <div class="s03-imgcard-inner">
+          <div class="s03-imgcard-bar">
+            <div class="s03-imgcard-dot" style="background:#FF5F57"></div>
+            <div class="s03-imgcard-dot" style="background:#FFBD2E"></div>
+            <div class="s03-imgcard-dot" style="background:#28C840"></div>
+          </div>
+          <div class="s03-imgcard-rows">
+            <div class="s03-imgcard-row wide"></div>
+            <div class="s03-imgcard-row med"></div>
+            <div class="s03-imgcard-row short"></div>
+            <div class="s03-imgcard-row wide" style="height:48px;margin-top:4px"></div>
+            <div class="s03-imgcard-row med"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+const panelEl = document.getElementById('s03panel');
+panelEl.innerHTML = panelHTML(TABS[0]);
+
+document.querySelectorAll('.s03-tab').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const idx = +btn.dataset.idx;
+    document.querySelectorAll('.s03-tab').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    panelEl.classList.add('fading');
+    setTimeout(()=>{
+      panelEl.innerHTML = panelHTML(TABS[idx]);
+      panelEl.classList.remove('fading');
+    },200);
+  });
+});
+
+/* Mobile accordion */
+const mob = document.getElementById('s03mob');
+TABS.forEach((t,i)=>{
+  const item = document.createElement('div');
+  item.className = 's03-mob-item';
+  const bullets = t.bullets.map(b=>`<li><i class="ti ti-circle-check ck"></i>${b}</li>`).join('');
+  item.innerHTML = `
+    <button class="s03-mob-trigger${i===0?' open':''}">
+      ${t.label}<i class="ti ti-chevron-down"></i>
+    </button>
+    <div class="s03-mob-body${i===0?' open':''}">
+      <div class="s03-mob-content">
+        <div class="s03-cat" style="margin-top:12px">${t.cat}</div>
+        <h3 class="s03-ph2" style="font-size:24px">${t.h2}</h3>
+        <p class="s03-pdesc">${t.desc}</p>
+        <ul class="s03-bullets">${bullets}</ul>
+        <a href="${t.cta.href}" class="s03-pcta">${t.cta.label}</a>
+      </div>
+    </div>`;
+  mob.appendChild(item);
+  const tr = item.querySelector('.s03-mob-trigger');
+  const bd = item.querySelector('.s03-mob-body');
+  tr.addEventListener('click',()=>{
+    const open = tr.classList.contains('open');
+    mob.querySelectorAll('.s03-mob-trigger').forEach(x=>x.classList.remove('open'));
+    mob.querySelectorAll('.s03-mob-body').forEach(x=>x.classList.remove('open'));
+    if(!open){tr.classList.add('open');bd.classList.add('open')}
+  });
+});
+
+
+/* ═══ S06: Integration tiles ═══ */
+const ROWS = [
+  [{n:"Zoom",c:"#2D8CFF"},{n:"MS Teams",c:"#6264A7"},{n:"Google Meet",c:"#00897B"},{n:"Webex",c:"#00BCEB"},{n:"GoToWebinar",c:"#F68121"},{n:"Livestorm",c:"#7C3AED"},{n:"BigBlueButton",c:"#1A6699"},{n:"Whereby",c:"#6B00FF"}],
+  [{n:"Salesforce",c:"#00A1E0"},{n:"HubSpot",c:"#FF7A59"},{n:"Mailchimp",c:"#FFE01B",dk:1},{n:"ActiveCampaign",c:"#356AE6"},{n:"Zoho CRM",c:"#E42527"},{n:"Pipedrive",c:"#00b050"},{n:"Brevo",c:"#0B996E"},{n:"Klaviyo",c:"#1A1A1A"}],
+  [{n:"Stripe",c:"#635BFF"},{n:"PayPal",c:"#003087"},{n:"Razorpay",c:"#2D81F7"},{n:"Square",c:"#3E4348"},{n:"Chargebee",c:"#FF6700"},{n:"Paddle",c:"#C5FF41",dk:1},{n:"Braintree",c:"#009CDE"},{n:"Paytm",c:"#00BAF2"}],
+  [{n:"Workday",c:"#F5821F"},{n:"BambooHR",c:"#73C041"},{n:"SAP HR",c:"#0070F2"},{n:"Oracle HCM",c:"#C74634"},{n:"ADP",c:"#D22630"},{n:"Darwinbox",c:"#5B2D8E"},{n:"Keka",c:"#FF6B35"},{n:"GreytHR",c:"#005BAC"}],
+  [{n:"Google Drive",c:"#4285F4"},{n:"OneDrive",c:"#0078D4"},{n:"Dropbox",c:"#0061FF"},{n:"SharePoint",c:"#0078D4"},{n:"Notion",c:"#1A1A1A"},{n:"Slack",c:"#4A154B"},{n:"Gmail",c:"#EA4335"},{n:"Outlook",c:"#0078D4"}],
+  [{n:"Zapier",c:"#FF4A00"},{n:"Make",c:"#6D00CC"},{n:"Power Automate",c:"#0066FF"},{n:"SCORM",c:"#009FE3"},{n:"xAPI",c:"#1F4E79"},{n:"Okta",c:"#007DC1"},{n:"QuickBooks",c:"#2CA01C"},{n:"Power BI",c:"#F2C811",dk:1}]
+];
+const rowsEl = document.getElementById('s06rows');
+ROWS.forEach(row=>{
+  const div = document.createElement('div');
+  div.className = 's06-row';
+  const doubled = [...row,...row];
+  doubled.forEach(t=>{
+    const tile = document.createElement('div');
+    tile.className = 's06-tile'+(t.dk?' dk':'');
+    tile.style.background = t.c;
+    tile.textContent = t.n;
+    div.appendChild(tile);
+  });
+  rowsEl.appendChild(div);
+});
+
+
+/* ═══ S11: FAQ accordion ═══ */
+const FAQS = [
+  {q:"What is training management software?",a:"Training management software (TMS) helps training companies manage scheduling, instructors, cohorts, resources, and operations in one platform. It streamlines administrative tasks and improves the efficiency of delivering training programs at scale."},
+  {q:"How is SimpliTrain different from a traditional LMS?",a:"A traditional LMS focuses primarily on content delivery and eLearning. SimpliTrain goes beyond that by combining LMS + TMS + LXP capabilities—helping you manage operations, instructor-led training, revenue, and business growth from a single platform."},
+  {q:"What makes SimpliTrain different from other training management software?",a:"Most TMS platforms focus only on operations. SimpliTrain is designed as a Training Intelligence Platform combining: Training operations (TMS), Learning delivery (LMS), Growth tools (CRM, marketing, commerce), and Revenue and performance insights. This means you don't just run training—you grow and optimize your entire training business."},
+  {q:"Can SimpliTrain support instructor-led and hybrid training?",a:"Yes. SimpliTrain is built for Instructor-Led Training (ILT), virtual classrooms, and hybrid delivery models. You can manage cohorts, schedules, trainers, and attendance—all in one place."},
+  {q:"Is SimpliTrain suitable for multi-location or franchise training businesses?",a:"Absolutely. SimpliTrain supports multi-location and multi-tenant (franchise) training models, allowing you to manage multiple centers, partners, or regions from a single platform while maintaining control and standardization."},
+  {q:"Can I sell courses and manage payments using SimpliTrain?",a:"Yes. SimpliTrain includes built-in ecommerce capabilities: create course catalogs, offer subscriptions and bundles, manage pricing and discounts, and handle payments and invoicing. This helps turn your training programs into a revenue-generating engine."},
+  {q:"How does SimpliTrain help grow my training business?",a:"SimpliTrain includes integrated tools for lead management (CRM), email campaigns and marketing automation, affiliate and partner management, and landing pages and SEO optimization. This helps you attract, convert, and retain learners—without relying on multiple disconnected tools."},
+  {q:"Does SimpliTrain provide reporting and analytics?",a:"Yes. SimpliTrain offers training intelligence dashboards that help you track revenue performance, trainer utilization, cohort profitability, enrollment trends, and drop-offs and learner engagement. This enables data-driven decision-making for your business."},
+  {q:"Can SimpliTrain integrate with my existing LMS or tools?",a:"Yes. SimpliTrain is designed to work alongside your existing systems. You can integrate external content (SCORM) and connect with your current tools without needing to replace everything."},
+  {q:"Is SimpliTrain suitable for small and growing training companies?",a:"Yes. SimpliTrain is designed for training academies at every stage of growth—from small teams launching their first programs to large organizations managing global training operations."}
+];
+const accEl = document.getElementById('s11acc');
+FAQS.forEach((f,i)=>{
+  const item = document.createElement('div');
+  item.className = 's11-item'+(i===0?' open':'');
+  item.innerHTML = `
+    <div class="s11-q">
+      <span class="s11-qt">${f.q}</span>
+      <i class="ti ti-chevron-down s11-chev"></i>
+    </div>
+    <div class="s11-abody"><p class="s11-atext">${f.a}</p></div>`;
+  accEl.appendChild(item);
+  item.querySelector('.s11-q').addEventListener('click',()=>{
+    const was = item.classList.contains('open');
+    accEl.querySelectorAll('.s11-item').forEach(x=>x.classList.remove('open'));
+    if(!was) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
