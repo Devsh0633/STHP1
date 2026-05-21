@@ -297,22 +297,23 @@
       cursor: pointer;
       user-select: none;
       position: relative;
-      background: rgba(255, 255, 255, 0.05);
+      background: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      color: rgba(255, 255, 255, 0.25);
       
       /* Dormant state */
-      opacity: 0.35;
-      filter: grayscale(80%) brightness(0.7);
+      opacity: 0.15;
+      filter: grayscale(40%) brightness(0.9);
       transform: scale(0.96);
       
       /* Smooth transitions for spotlight movement */
       transition: opacity 450ms cubic-bezier(0.16, 1, 0.3, 1),
                   filter 450ms cubic-bezier(0.16, 1, 0.3, 1),
                   transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
-                  background-color 450ms cubic-bezier(0.16, 1, 0.3, 1),
-                  border-color 450ms cubic-bezier(0.16, 1, 0.3, 1),
-                  color 450ms cubic-bezier(0.16, 1, 0.3, 1);
+                  box-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .s06-tile i {
+      color: var(--brand-color);
+      transition: color 450ms cubic-bezier(0.16, 1, 0.3, 1);
     }
     .s06-tooltip {
       position: absolute;
@@ -925,8 +926,8 @@ for (let i = 0; i < TOTAL_TILES; i++) {
 
 displayList.forEach(t => {
   const tile = document.createElement('div');
-  tile.className = 's06-tile' + (t.dk ? ' dk' : '');
-  tile.dataset.color = t.c;
+  tile.className = 's06-tile';
+  tile.style.setProperty('--brand-color', t.c);
   tile.dataset.name = t.n;
   const iconClass = ICON_MAP[t.n] || 'ti-apps';
   tile.innerHTML = `
@@ -958,23 +959,15 @@ s06right.addEventListener('mousemove', (e) => {
       const intensity = 1 - (distance / maxRadius);
       const eased = Math.pow(intensity, 2); // Premium curve
 
-      tile.style.opacity = 0.35 + (eased * 0.65);
-      tile.style.filter = `grayscale(${80 - (eased * 80)}%) brightness(${0.7 + (eased * 0.3)})`;
+      tile.style.opacity = 0.15 + (eased * 0.85);
+      tile.style.filter = `grayscale(${40 - (eased * 40)}%) brightness(${0.9 + (eased * 0.1)})`;
       tile.style.transform = `scale(${0.96 + (eased * 0.08)})`;
-      tile.style.backgroundColor = tile.dataset.color;
-      tile.style.borderColor = 'transparent';
-      if (tile.classList.contains('dk')) {
-        tile.style.color = '#111';
-      } else {
-        tile.style.color = '#fff';
-      }
+      tile.style.boxShadow = `0 ${eased * 10}px ${eased * 25}px rgba(0, 0, 0, ${eased * 0.35})`;
     } else {
-      tile.style.opacity = '0.35';
-      tile.style.filter = 'grayscale(80%) brightness(0.7)';
+      tile.style.opacity = '0.15';
+      tile.style.filter = 'grayscale(40%) brightness(0.9)';
       tile.style.transform = 'scale(0.96)';
-      tile.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-      tile.style.borderColor = 'rgba(255, 255, 255, 0.08)';
-      tile.style.color = 'rgba(255, 255, 255, 0.25)';
+      tile.style.boxShadow = 'none';
     }
   }
 });
@@ -982,12 +975,10 @@ s06right.addEventListener('mousemove', (e) => {
 s06right.addEventListener('mouseleave', () => {
   for (let i = 0; i < s06tiles.length; i++) {
     const tile = s06tiles[i];
-    tile.style.opacity = '0.35';
-    tile.style.filter = 'grayscale(80%) brightness(0.7)';
+    tile.style.opacity = '0.15';
+    tile.style.filter = 'grayscale(40%) brightness(0.9)';
     tile.style.transform = 'scale(0.96)';
-    tile.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-    tile.style.borderColor = 'rgba(255, 255, 255, 0.08)';
-    tile.style.color = 'rgba(255, 255, 255, 0.25)';
+    tile.style.boxShadow = 'none';
   }
 });
 
