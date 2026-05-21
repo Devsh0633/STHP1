@@ -156,23 +156,63 @@
     .s02-right {
       position: relative;
     }
-    .s02-dash-container {
+    .s02-composite {
       position: relative;
       width: 100%;
-      border-radius: 16px;
+      max-width: 580px;
+      margin: 0 auto;
       overflow: visible;
     }
-    .s02-dash-img {
-      width: 100%;
-      height: auto;
+    .s02-main-dash {
+      width: 90%;
+      margin-left: 5%;
       display: block;
-      border-radius: 16px;
-      box-shadow: 0 20px 80px rgba(0, 144, 255, 0.28);
-      transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 14px;
+      border: 3px solid #d946ef; /* Gorgeous bright neon pink/purple border! */
+      box-shadow: 0 20px 80px rgba(217, 70, 239, 0.25);
+      transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .s02-dash-img:hover {
-      transform: scale(1.015) translateY(-2px);
-      box-shadow: 0 25px 90px rgba(0, 144, 255, 0.35);
+    .s02-main-dash:hover {
+      transform: translateY(-2px);
+    }
+    .s02-layer-announcements {
+      position: absolute;
+      bottom: -30px;
+      left: -20px;
+      width: 44%;
+      z-index: 3;
+      border-radius: 10px;
+      box-shadow: 0 12px 30px rgba(6, 182, 212, 0.25); /* Cyan glow shadow! */
+      transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .s02-layer-announcements:hover {
+      transform: translateY(-4px) scale(1.02);
+    }
+    .s02-layer-reports {
+      position: absolute;
+      bottom: -45px;
+      left: 26%;
+      width: 68%;
+      z-index: 4;
+      border-radius: 10px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+      transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .s02-layer-reports:hover {
+      transform: translateY(-4px) scale(1.02);
+    }
+    .s02-layer-calendar {
+      position: absolute;
+      bottom: 25px;
+      right: -25px;
+      width: 33%;
+      z-index: 2;
+      border-radius: 10px;
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.25); /* Indigo glow shadow! */
+      transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .s02-layer-calendar:hover {
+      transform: translateY(-4px) scale(1.02);
     }
 
 
@@ -712,10 +752,13 @@
         </div>
       </div>
 
-      <!-- Right: styled dashboard mockup image -->
+      <!-- Right: styled dashboard mockup composite -->
       <div class="s02-right">
-        <div class="s02-dash-container">
-          <img src="./hero-dashboard.png" class="s02-dash-img" alt="SimpliTrain Dashboard Mockup">
+        <div class="s02-composite">
+          <img src="./dash-main.png" class="s02-main-dash" alt="SimpliTrain Dashboard">
+          <img src="./dash-announcements.png" class="s02-layer-announcements" alt="Recent Announcements">
+          <img src="./dash-reports.png" class="s02-layer-reports" alt="Quick Reports">
+          <img src="./dash-calendar.png" class="s02-layer-calendar" alt="Training Calendar">
         </div>
       </div>
 
