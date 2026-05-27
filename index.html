@@ -2211,6 +2211,132 @@
         gap: 28px;
       }
     }
+
+    /* ══════════════════════════════════════
+       NEW SECTION — COMPARISON
+    ══════════════════════════════════════ */
+    .s-comparison {
+      background: #f8fafc;
+      padding: 100px 0;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      position: relative;
+    }
+    .s-comparison-head {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 56px;
+    }
+    .s-comparison-h2 {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+    }
+    .s-comparison-sub {
+      font-size: 18px;
+      color: #475569;
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+    .s-comparison-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 16px;
+      border: 1.5px solid #e2e8f0;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.02);
+      background: #ffffff;
+      -webkit-overflow-scrolling: touch;
+    }
+    .s-comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 15px;
+      min-width: 900px;
+    }
+    .s-comparison-table th, .s-comparison-table td {
+      padding: 22px 24px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: middle;
+    }
+    .s-comparison-table tr:last-child th, .s-comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+    .s-comparison-table th {
+      background: #ffffff;
+      font-weight: 700;
+      color: var(--dark);
+      font-size: 16px;
+    }
+    .s-comparison-table th.col-cap {
+      width: 30%;
+    }
+    .s-comparison-table th.col-tms, .s-comparison-table th.col-lms {
+      width: 23%;
+      text-align: center;
+      color: #64748b;
+      font-weight: 600;
+    }
+    .s-comparison-table th.col-simpli {
+      width: 24%;
+      text-align: center;
+      position: relative;
+    }
+    .s-comparison-table tbody tr:nth-child(even) td:not(.cell-simpli) {
+      background: #f8fafc;
+    }
+    .s-comparison-table td.cell-cap {
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .s-comparison-table td.cell-tms, .s-comparison-table td.cell-lms {
+      text-align: center;
+      color: #475569;
+    }
+    .s-comparison-table td.cell-simpli {
+      text-align: center;
+      font-weight: 600;
+      color: var(--blue);
+      background: rgba(26, 82, 160, 0.02);
+      border-left: 2px solid rgba(26, 82, 160, 0.08);
+      border-right: 2px solid rgba(26, 82, 160, 0.08);
+    }
+    .s-comparison-table th.col-simpli {
+      background: rgba(26, 82, 160, 0.02);
+      border-left: 2px solid rgba(26, 82, 160, 0.08);
+      border-right: 2px solid rgba(26, 82, 160, 0.08);
+      color: var(--blue);
+    }
+    .s-comparison-status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+    .s-comparison-status.yes {
+      color: #0f766e;
+    }
+    .s-comparison-status.no {
+      color: #be123c;
+    }
+    .s-comparison-status.warning {
+      color: #b45309;
+    }
+    .simpli-badge {
+      display: inline-block;
+      background: var(--blue);
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: var(--r-pill);
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
   </style>
 </head>
 <body>
@@ -2423,6 +2549,100 @@
         <h3 class="s-modular-ch3">Need everything in one place?</h3>
         <p class="s-modular-cbody">Run your full learning stack on SimpliTrain — providing one contract, one single source of truth, and one expert team to support you.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     NEW SECTION — THE COMPARISON
+══════════════════════════════════════ -->
+<section class="s-comparison">
+  <div class="wrap">
+    <div class="s-comparison-head">
+      <h2 class="s-comparison-h2">The honest comparison.</h2>
+      <p class="s-comparison-sub">Most ILT platforms force a trade-off: deep ops or full learning lifecycle. SimpliTrain gives you both — without forcing you to use everything on day one.</p>
+    </div>
+    
+    <div class="s-comparison-table-wrap">
+      <table class="s-comparison-table">
+        <thead>
+          <tr>
+            <th class="col-cap">Capability</th>
+            <th class="col-tms">TMS-only<br><span style="font-size: 12px; font-weight: 400; color: #94a3b8;">(Administrate, Training Orchestra)</span></th>
+            <th class="col-lms">LMS-only<br><span style="font-size: 12px; font-weight: 400; color: #94a3b8;">(Cornerstone, Docebo)</span></th>
+            <th class="col-simpli">
+              <span class="simpli-badge">Unified Platform</span><br>
+              SimpliTrain
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row 1 -->
+          <tr>
+            <td class="cell-cap">ILT/vILT scheduling &amp; operations</td>
+            <td class="cell-tms"><span class="s-comparison-status yes"><i class="ti ti-circle-check-filled"></i> Strong</span></td>
+            <td class="cell-lms"><span class="s-comparison-status warning"><i class="ti ti-alert-triangle-filled"></i> Weak / bolt-on</span></td>
+            <td class="cell-simpli"><span class="s-comparison-status yes"><i class="ti ti-circle-check-filled"></i> Built for ILT</span></td>
+          </tr>
+          
+          <!-- Row 2 -->
+          <tr>
+            <td class="cell-cap">Trainer &amp; resource utilization</td>
+            <td class="cell-tms"><span class="s-comparison-status yes"><i class="ti ti-circle-check-filled"></i> Yes</span></td>
+            <td class="cell-lms"><span class="s-comparison-status no"><i class="ti ti-circle-x-filled"></i> No</span></td>
+            <td class="cell-simpli"><span class="s-comparison-status yes"><i class="ti ti-circle-check-filled"></i> Yes</span></td>
+          </tr>
+          
+          <!-- Row 3 -->
+          <tr>
+            <td class="cell-cap">Multi-location, multi-language</td>
+            <td class="cell-tms"><span class="s-comparison-status yes"><i class="ti ti-circle-check-filled"></i> Yes</span></td>
+            <td class="cell-lms"><span class="s-comparison-status warning"><i class="ti ti-alert-triangle-filled"></i> Varies</span></td>
+            <td class="cell-simpli"><span class="s-comparison-status yes"><i class="ti ti-circle-check-filled"></i> Yes</span></td>
+          </tr>
+          
+          <!-- Row 4 -->
+          <tr>
+            <td class="cell-cap">Native LMS / content delivery</td>
+            <td class="cell-tms"><span class="s-comparison-status no"><i class="ti ti-circle-x-filled"></i> Requires separate LMS</span></td>
+            <td class="cell-lms"><span class="s-comparison-status yes"><i class="ti ti-circle-check-filled"></i> Built-in</span></td>
+            <td class="cell-simpli"><span class="s-comparison-status yes"><i class="ti ti-circle-check-filled"></i> Optional, built-in</span></td>
+          </tr>
+          
+          <!-- Row 5 -->
+          <tr>
+            <td class="cell-cap">Native assessments &amp; proctoring</td>
+            <td class="cell-tms"><span class="s-comparison-status no"><i class="ti ti-circle-x-filled"></i> Requires separate tool</span></td>
+            <td class="cell-lms"><span class="s-comparison-status warning"><i class="ti ti-alert-triangle-filled"></i> Basic</span></td>
+            <td class="cell-simpli"><span class="s-comparison-status yes"><i class="ti ti-circle-check-filled"></i> Optional, built-in</span></td>
+          </tr>
+          
+          <!-- Row 6 -->
+          <tr>
+            <td class="cell-cap">Course authoring</td>
+            <td class="cell-tms"><span class="s-comparison-status no"><i class="ti ti-circle-x-filled"></i> No</span></td>
+            <td class="cell-lms"><span class="s-comparison-status warning"><i class="ti ti-alert-triangle-filled"></i> Add-on</span></td>
+            <td class="cell-simpli"><span class="s-comparison-status yes"><i class="ti ti-circle-check-filled"></i> Optional, built-in</span></td>
+          </tr>
+          
+          <!-- Row 7 -->
+          <tr>
+            <td class="cell-cap">Bring your own LMS / assessments</td>
+            <td class="cell-tms"><span class="s-comparison-status warning"><i class="ti ti-alert-triangle-filled"></i> Required</span></td>
+            <td class="cell-lms"><span class="s-comparison-status no"><i class="ti ti-circle-x-filled"></i> N/A</span></td>
+            <td class="cell-simpli"><span class="s-comparison-status yes"><i class="ti ti-circle-check-filled"></i> Fully supported</span></td>
+          </tr>
+          
+          <!-- Row 8 -->
+          <tr>
+            <td class="cell-cap">Run ILT end-to-end on one platform</td>
+            <td class="cell-tms"><span class="s-comparison-status no"><i class="ti ti-circle-x-filled"></i> No</span></td>
+            <td class="cell-lms"><span class="s-comparison-status no"><i class="ti ti-circle-x-filled"></i> No</span></td>
+            <td class="cell-simpli"><span class="s-comparison-status yes"><i class="ti ti-circle-check-filled"></i> Yes</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
