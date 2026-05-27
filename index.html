@@ -3033,6 +3033,25 @@
       padding: 2px 6px;
       border-radius: 4px;
     }
+    /* Priority comparison links */
+    .ft-vs-link {
+      position: relative;
+      padding-left: 10px !important;
+    }
+    .ft-vs-link::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 12px;
+      background: rgba(0, 191, 179, 0.5);
+      border-radius: 2px;
+    }
+    .ft-vs-link:hover {
+      color: #00bfb3 !important;
+    }
     /* Bottom bar */
     .st-footer-bottom {
       display: flex;
@@ -4667,14 +4686,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <!-- Compare -->
       <div class="st-footer-col">
-        <h4>Compare</h4>
+        <h4>Compare SimpliTrain</h4>
         <ul>
-          <li><a href="/vs/training-orchestra/">vs. Training Orchestra</a></li>
-          <li><a href="/vs/administrate/">vs. Administrate</a></li>
-          <li><a href="/vs/docebo/">vs. Docebo</a></li>
-          <li><a href="/vs/absorb-lms/">vs. Absorb LMS</a></li>
-          <li><a href="/vs/cornerstone/">vs. Cornerstone</a></li>
-          <li><a href="/vs/sap-successfactors/">vs. SAP SuccessFactors</a></li>
+          <li><a href="/vs/training-orchestra/" class="ft-vs-link">SimpliTrain vs. Training Orchestra</a></li>
+          <li><a href="/vs/administrate/" class="ft-vs-link">SimpliTrain vs. Administrate</a></li>
+          <li><a href="/vs/docebo/" class="ft-vs-link">SimpliTrain vs. Docebo</a></li>
+          <li><a href="/vs/absorb-lms/" class="ft-vs-link">SimpliTrain vs. AbsorbLMS</a></li>
+          <li><a href="/vs/cornerstone/">SimpliTrain vs. Cornerstone</a></li>
+          <li><a href="/vs/sap-successfactors/">SimpliTrain vs. SAP SuccessFactors</a></li>
         </ul>
       </div>
 
