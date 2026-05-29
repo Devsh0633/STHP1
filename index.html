@@ -887,92 +887,99 @@
     /* ══════════════════════════════════════
        NEW SECTION, PRICING PROMO
     ══════════════════════════════════════ */
-    .s-pricing-promo {
+    .s-pricing-card-wrap {
       background: #f8fafc;
-      padding: 100px 0;
-      color: #0f172a;
+      padding: 100px 20px;
+      display: flex;
+      justify-content: center;
       border-top: 1px solid #e2e8f0;
       border-bottom: 1px solid #e2e8f0;
     }
-    .s-pricing-promo-container {
+    .s-pricing-card {
+      background: #171717; /* Dark almost black */
+      border-radius: 12px;
+      padding: 48px;
+      max-width: 580px;
+      width: 100%;
+      color: #ffffff;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .s-pricing-card-eyebrow {
       display: flex;
-      gap: 60px;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .s-pricing-promo-left {
-      flex: 1;
-      padding-right: 20px;
-    }
-    .s-pricing-promo-h2 {
-      font-size: 36px;
-      font-weight: 800;
-      line-height: 1.25;
+      gap: 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0090ff;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       margin-bottom: 24px;
-      color: #0f172a;
+    }
+    .s-pricing-card-eyebrow::after {
+      content: '';
+      height: 2px;
+      width: 50px;
+      background: #0090ff;
+    }
+    .s-pricing-card-h2 {
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 24px;
       letter-spacing: -0.02em;
     }
-    .s-pricing-promo-desc {
-      font-size: 17px;
-      color: #475569;
+    .s-pricing-card-h2 mark {
+      background: #fde047; /* Yellow highlight */
+      color: #171717;
+      padding: 0 6px;
+      border-radius: 2px;
+    }
+    .s-pricing-card-p {
+      font-size: 18px;
       line-height: 1.6;
+      color: #e4e4e7;
+      margin-bottom: 32px;
     }
-    .s-pricing-promo-right {
-      flex: 1;
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+    .s-pricing-card-inner {
+      background: #27272a;
+      border-left: 4px solid #0090ff;
+      padding: 24px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 40px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #e4e4e7;
     }
-    .s-pricing-promo-h3 {
-      font-size: 20px;
+    .s-pricing-card-inner strong {
+      color: #ffffff;
       font-weight: 700;
-      margin-bottom: 24px;
-      color: #0090ff;
     }
-    .s-pricing-promo-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .s-pricing-card-btn {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .s-pricing-promo-list li {
-      font-size: 15px;
-      color: #475569;
-      line-height: 1.5;
-      padding-left: 28px;
-      position: relative;
-    }
-    .s-pricing-promo-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      top: 1px;
-      color: #0090ff;
-      font-weight: bold;
-      font-size: 14px;
-    }
-    .s-pricing-promo-list li strong {
-      color: #0f172a;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background: #0090ff;
+      color: #ffffff;
       font-weight: 600;
+      font-size: 18px;
+      padding: 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+      gap: 8px;
+    }
+    .s-pricing-card-btn:hover {
+      background: #0077d9;
     }
 
-    @media (max-width: 992px) {
-      .s-pricing-promo-container {
-        flex-direction: column;
-        gap: 40px;
+    @media (max-width: 768px) {
+      .s-pricing-card {
+        padding: 32px 24px;
       }
-      .s-pricing-promo-left, .s-pricing-promo-right {
-        width: 100%;
-        padding: 0;
-      }
-      .s-pricing-promo-right {
-        padding: 30px;
+      .s-pricing-card-h2 {
+        font-size: 32px;
       }
     }
 
@@ -3010,29 +3017,17 @@
 <!-- ══════════════════════════════════════
      NEW SECTION, PRICING PROMO
 ══════════════════════════════════════ -->
-<section class="s-pricing-promo">
-  <div class="s-pricing-promo-container">
-    <div class="s-pricing-promo-left">
-      <h2 class="s-pricing-promo-h2">Train as many people as you want. Pay for the platform, not the learners.</h2>
-      <p class="s-pricing-promo-desc">Most training platforms charge per learner, then fight you over what counts as "active." SimpliTrain doesn't. You pay a flat fee based on your administrators and instructors. Learners are unlimited.</p>
+<section class="s-pricing-card-wrap">
+  <div class="s-pricing-card">
+    <div class="s-pricing-card-eyebrow">SIMPLITRAIN PRICING</div>
+    <h2 class="s-pricing-card-h2"><mark>Flat</mark> pricing. Unlimited learners.</h2>
+    <p class="s-pricing-card-p">Pay based on the people who run training your administrators and instructors. The number of learners is unlimited, whether you train 500 people this year or 50,000.</p>
+    
+    <div class="s-pricing-card-inner">
+      <strong>The honest model:</strong> we make money when you grow your team not when you grow your learner count. No usage caps, no fair-use traps, no renewal surprises.
     </div>
-    <div class="s-pricing-promo-right">
-      <h3 class="s-pricing-promo-h3">What this means for you:</h3>
-      <ul class="s-pricing-promo-list">
-        <li>
-          <strong>Train more, save more.</strong> Your per-learner cost drops as your program grows. With per-learner pricing, it goes up.
-        </li>
-        <li>
-          <strong>No renewal surprises.</strong> Your cost doesn't spike because hiring grew, turnover increased, or you ran a big compliance push.
-        </li>
-        <li>
-          <strong>Compliance and onboarding training without budget anxiety.</strong> Train every plant worker, every nurse, every new hire, without checking the meter.
-        </li>
-        <li>
-          <strong>Predictable budgeting.</strong> You know your platform cost a year out. Finance loves you.
-        </li>
-      </ul>
-    </div>
+
+    <a href="/pricing" class="s-pricing-card-btn">See pricing <i class="ti ti-arrow-right"></i></a>
   </div>
 </section>
 
