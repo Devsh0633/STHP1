@@ -600,6 +600,125 @@
       }
     }
 
+    /* ══════════════════════════════════════
+       NEW SECTION, DYNAMIC LEARNING
+    ══════════════════════════════════════ */
+    .s-dynamic {
+      background: #f4f7fb;
+      padding: 100px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .s-dynamic-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+    .s-dynamic-left {
+      flex: 1;
+    }
+    .s-dynamic-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #4c1d95; /* purple */
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+    .s-dynamic-eyebrow::after {
+      content: '';
+      height: 2px;
+      width: 40px;
+      background: #4c1d95;
+    }
+    .s-dynamic-h2 {
+      font-size: 42px;
+      font-weight: 800;
+      color: #334155;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .s-dynamic-h2 .accent-blue {
+      color: #0090ff;
+    }
+    .s-dynamic-middle {
+      border-left: 1px dashed #cbd5e1;
+      padding-left: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      flex: 1;
+    }
+    .s-dynamic-stat-val {
+      font-size: 48px;
+      font-weight: 800;
+      color: #4c1d95; /* deep purple */
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .s-dynamic-stat-desc {
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.5;
+    }
+    .s-dynamic-right {
+      flex: 1;
+    }
+    .s-dynamic-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .s-dynamic-badges {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .s-dynamic-badge-img {
+      height: 80px;
+      width: auto;
+    }
+    .s-dynamic-card-score {
+      font-size: 42px;
+      font-weight: 800;
+      color: #4c1d95;
+      line-height: 1;
+    }
+    .s-dynamic-card-desc {
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.5;
+    }
+    
+    @media (max-width: 992px) {
+      .s-dynamic-container {
+        flex-direction: column;
+        gap: 40px;
+      }
+      .s-dynamic-middle {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px dashed #cbd5e1;
+        padding-top: 40px;
+        flex-direction: row;
+      }
+    }
+    @media (max-width: 768px) {
+      .s-dynamic-middle {
+        flex-direction: column;
+        gap: 32px;
+      }
+    }
+
 
     /* ══════════════════════════════════════
        NEW SECTIONS, DYNAMIC LEARNING ENGINES & BRAND TICKER
@@ -3276,6 +3395,40 @@
 
 
 
+
+<!-- ══════════════════════════════════════
+     NEW SECTION, DYNAMIC LEARNING
+══════════════════════════════════════ -->
+<section class="s-dynamic">
+  <div class="s-dynamic-container">
+    <div class="s-dynamic-left">
+      <div class="s-dynamic-eyebrow">GOING BEYOND THE LMS</div>
+      <h2 class="s-dynamic-h2">Turning static<br>systems into<br><span class="accent-blue">dynamic</span><br>learning engines.</h2>
+    </div>
+    
+    <div class="s-dynamic-middle">
+      <div class="s-dynamic-stat">
+        <div class="s-dynamic-stat-val">3X</div>
+        <div class="s-dynamic-stat-desc">Faster skill ramp-up time with<br>adaptive learning paths</div>
+      </div>
+      <div class="s-dynamic-stat">
+        <div class="s-dynamic-stat-val">90%</div>
+        <div class="s-dynamic-stat-desc">Of learners say AI-personalized<br>content helps them apply<br>training faster</div>
+      </div>
+    </div>
+    
+    <div class="s-dynamic-right">
+      <div class="s-dynamic-card">
+        <div class="s-dynamic-badges">
+          <img src="./badge-top10.png" alt="Top 10 Learning Ops Systems 2025" class="s-dynamic-badge-img">
+          <img src="./badge-elearning.png" alt="eLearning Industry 4.6" class="s-dynamic-badge-img">
+        </div>
+        <div class="s-dynamic-card-score">4.6/5</div>
+        <div class="s-dynamic-card-desc">Trusted by industry analysts for<br>enabling unified training<br>delivery at scale.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ══════════════════════════════════════
      NEW SECTION, FINAL CTA BANNER
