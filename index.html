@@ -887,19 +887,48 @@
     /* ══════════════════════════════════════
        NEW SECTION, PRICING PROMO
     ══════════════════════════════════════ */
-    .s-pricing-card-wrap {
+    .s-pricing-promo {
       background: #f8fafc;
-      padding: 100px 20px;
-      display: flex;
-      justify-content: center;
+      padding: 100px 0;
+      color: #0f172a;
       border-top: 1px solid #e2e8f0;
       border-bottom: 1px solid #e2e8f0;
     }
+    .s-pricing-promo-container {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .s-pricing-promo-left {
+      flex: 1;
+      padding-right: 20px;
+    }
+    .s-pricing-promo-h2 {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 24px;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+    .s-pricing-promo-desc {
+      font-size: 17px;
+      color: #475569;
+      line-height: 1.6;
+    }
+    .s-pricing-promo-right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
     .s-pricing-card {
       background: #171717; /* Dark almost black */
       border-radius: 12px;
       padding: 48px;
-      max-width: 580px;
       width: 100%;
       color: #ffffff;
       box-shadow: 0 20px 40px rgba(0,0,0,0.1);
@@ -974,6 +1003,19 @@
       background: #0077d9;
     }
 
+    @media (max-width: 992px) {
+      .s-pricing-promo-container {
+        flex-direction: column;
+        gap: 40px;
+      }
+      .s-pricing-promo-left, .s-pricing-promo-right {
+        width: 100%;
+        padding: 0;
+      }
+      .s-pricing-promo-right {
+        justify-content: center;
+      }
+    }
     @media (max-width: 768px) {
       .s-pricing-card {
         padding: 32px 24px;
@@ -3017,17 +3059,25 @@
 <!-- ══════════════════════════════════════
      NEW SECTION, PRICING PROMO
 ══════════════════════════════════════ -->
-<section class="s-pricing-card-wrap">
-  <div class="s-pricing-card">
-    <div class="s-pricing-card-eyebrow">SIMPLITRAIN PRICING</div>
-    <h2 class="s-pricing-card-h2"><mark>Flat</mark> pricing. Unlimited learners.</h2>
-    <p class="s-pricing-card-p">Pay based on the people who run training your administrators and instructors. The number of learners is unlimited, whether you train 500 people this year or 50,000.</p>
-    
-    <div class="s-pricing-card-inner">
-      <strong>The honest model:</strong> we make money when you grow your team not when you grow your learner count. No usage caps, no fair-use traps, no renewal surprises.
+<section class="s-pricing-promo">
+  <div class="s-pricing-promo-container">
+    <div class="s-pricing-promo-left">
+      <h2 class="s-pricing-promo-h2">Train as many people as you want. Pay for the platform, not the learners.</h2>
+      <p class="s-pricing-promo-desc">Most training platforms charge per learner, then fight you over what counts as "active." SimpliTrain doesn't. You pay a flat fee based on your administrators and instructors. Learners are unlimited.</p>
     </div>
+    <div class="s-pricing-promo-right">
+      <div class="s-pricing-card">
+        <div class="s-pricing-card-eyebrow">SIMPLITRAIN PRICING</div>
+        <h2 class="s-pricing-card-h2"><mark>Flat</mark> pricing. Unlimited learners.</h2>
+        <p class="s-pricing-card-p">Pay based on the people who run training your administrators and instructors. The number of learners is unlimited, whether you train 500 people this year or 50,000.</p>
+        
+        <div class="s-pricing-card-inner">
+          <strong>The honest model:</strong> we make money when you grow your team not when you grow your learner count. No usage caps, no fair-use traps, no renewal surprises.
+        </div>
 
-    <a href="/pricing" class="s-pricing-card-btn">See pricing <i class="ti ti-arrow-right"></i></a>
+        <a href="/pricing" class="s-pricing-card-btn">See pricing <i class="ti ti-arrow-right"></i></a>
+      </div>
+    </div>
   </div>
 </section>
 
