@@ -456,106 +456,148 @@
        SECTION 08, BLOG  (dark left + 2x2 card grid right)
     ══════════════════════════════════════ */
     .s08 {
-      background: #000000; /* Full bleed solid pitch black! */
-      padding: 90px 0;
+      background: #f4f7fb;
+      padding: 100px 0;
     }
     .s08-container {
       display: flex;
-      gap: 48px;
-      align-items: center;
-      width: 100%;
+      gap: 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
-    .s08-left {
-      width: 35%;
+    .s08-col {
+      flex: 1;
+    }
+    .s08-h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+    
+    /* Featured Card */
+    .s08-featured-card {
       background: transparent;
-      padding: 0;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-    }
-    .s08-lh2 {
-      font-size: 34px;
-      font-weight: 350;
-      color: #ffffff;
-      line-height: 1.35;
-      letter-spacing: -0.015em;
-    }
-    .s08-lcta {
-      margin-top: 28px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #ffffff;
-      color: #000000;
-      border-radius: 50px;
-      font-weight: 500;
-      font-size: 14.5px;
-      padding: 12px 26px;
       text-decoration: none;
-      border: none;
-      width: fit-content;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
     }
-    .s08-lcta:hover {
-      background: #e5e7eb;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
-    }
-    .s08-right {
-      width: 65%;
-      background: transparent;
-      padding: 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      align-content: center;
-    }
-    .s08-card {
-      background: #ffffff;
-      border: none;
-      border-radius: 14px;
-      padding: 12px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      aspect-ratio: 1.45 / 1; /* Elegant landscape rectangle ratio! Shrinks size vertically! */
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
-                  box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .s08-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(255, 255, 255, 0.08), 0 6px 14px rgba(0, 0, 0, 0.2);
-    }
-    .s08-thumb {
+    .s08-featured-img-wrap {
       width: 100%;
-      height: 66%; /* Fits perfectly in the landscape card, leaving exact space for title */
-      border-radius: 8px;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
       overflow: hidden;
-      background: #f1f5f9;
-      position: relative;
+      margin-bottom: 24px;
     }
-    .s08-img {
+    .s08-featured-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.3s ease;
     }
-    .s08-card:hover .s08-img {
+    .s08-featured-card:hover .s08-featured-img {
       transform: scale(1.03);
     }
-    .s08-title {
-      margin-top: 10px;
-      font-size: 15px; /* Sleek, premium font size */
+    .s08-badge {
+      display: inline-block;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      font-size: 11px;
       font-weight: 600;
-      color: #111111;
-      line-height: 1.35;
-      letter-spacing: -0.01em;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+      width: fit-content;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .s08-featured-card:hover .s08-badge, .s08-list-card:hover .s08-badge {
+      border-color: #94a3b8;
+      color: #1e293b;
+    }
+    .s08-featured-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .s08-featured-desc {
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .s08-learn-more {
+      font-size: 14px;
+      font-weight: 600;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 12px;
+      transition: color 0.2s, border-bottom-color 0.2s;
+    }
+    .s08-featured-card:hover .s08-learn-more {
+      color: #0090ff;
+      border-bottom-color: #0090ff;
+    }
+
+    /* List Cards */
+    .s08-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .s08-list-card {
+      display: flex;
+      gap: 20px;
+      text-decoration: none;
+      align-items: center;
+    }
+    .s08-list-img-wrap {
+      width: 160px;
+      height: 110px;
+      border-radius: 8px;
       overflow: hidden;
+      flex-shrink: 0;
+    }
+    .s08-list-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .s08-list-card:hover .s08-list-img {
+      transform: scale(1.05);
+    }
+    .s08-list-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+    }
+    .s08-list-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+    .s08-list-card:hover .s08-learn-more {
+      color: #0090ff;
+      border-bottom-color: #0090ff;
+    }
+    @media (max-width: 992px) {
+      .s08-container {
+        flex-direction: column;
+      }
+      .s08-list-img-wrap {
+        width: 120px;
+        height: 90px;
+      }
     }
 
 
@@ -3086,43 +3128,59 @@
      SECTION 08, BLOG / RESOURCES
 ══════════════════════════════════════ -->
 <section class="s08">
-  <div class="wrap s08-container">
-
-    <div class="s08-left">
-      <h2 class="s08-lh2">Get tips and inspiration for running and scaling your training business.</h2>
-      <a href="/blog" class="s08-lcta">Discover Tips</a>
+  <div class="s08-container">
+    
+    <div class="s08-col">
+      <h2 class="s08-h2">Featured</h2>
+      <a href="/blog/manage-training-cohorts" class="s08-featured-card">
+        <div class="s08-featured-img-wrap">
+          <img src="./tip-tools.png" alt="Manage Training Cohorts" class="s08-featured-img">
+        </div>
+        <span class="s08-badge">Featured</span>
+        <h3 class="s08-featured-title">How to Manage Training Cohorts Efficiently at Scale</h3>
+        <p class="s08-featured-desc">Managing training cohorts sounds simple, until your organization starts scaling. What works for 20 learners quickly breaks down...</p>
+        <div class="s08-learn-more">Learn more <i class="ti ti-arrow-right"></i></div>
+      </a>
     </div>
 
-    <div class="s08-right">
+    <div class="s08-col">
+      <h2 class="s08-h2">Editor's picks</h2>
+      <div class="s08-list">
+        
+        <a href="/blog/use-cases" class="s08-list-card">
+          <div class="s08-list-img-wrap">
+            <img src="./tip-ai.png" alt="Use Cases" class="s08-list-img">
+          </div>
+          <div class="s08-list-content">
+            <span class="s08-badge">Use Cases</span>
+            <h3 class="s08-list-title">Support for Every Training Need</h3>
+            <div class="s08-learn-more">Read Now <i class="ti ti-arrow-right"></i></div>
+          </div>
+        </a>
 
-      <div class="s08-card">
-        <div class="s08-thumb">
-          <img class="s08-img" src="./tip-ai.png" alt="AI-Powered Personalization">
-        </div>
-        <h3 class="s08-title">AI-Powered Personalization: The Future of LMS Platforms</h3>
+        <a href="/blog/pricing" class="s08-list-card">
+          <div class="s08-list-img-wrap">
+            <img src="./tip-launch.png" alt="Pricing" class="s08-list-img">
+          </div>
+          <div class="s08-list-content">
+            <span class="s08-badge">Pricing</span>
+            <h3 class="s08-list-title">Say goodbye to per-learner pricing.</h3>
+            <div class="s08-learn-more">Read Now <i class="ti ti-arrow-right"></i></div>
+          </div>
+        </a>
+
+        <a href="/blog/help-centre" class="s08-list-card">
+          <div class="s08-list-img-wrap">
+            <img src="./tip-explore.png" alt="Help Centre" class="s08-list-img">
+          </div>
+          <div class="s08-list-content">
+            <span class="s08-badge">Help Centre</span>
+            <h3 class="s08-list-title">Everything you need to master SimpliTrain</h3>
+            <div class="s08-learn-more">Read Now <i class="ti ti-arrow-right"></i></div>
+          </div>
+        </a>
+
       </div>
-
-      <div class="s08-card">
-        <div class="s08-thumb">
-          <img class="s08-img" src="./tip-tools.png" alt="LMS that Works with Your Tools">
-        </div>
-        <h3 class="s08-title">LMS that Works with Your Tools</h3>
-      </div>
-
-      <div class="s08-card">
-        <div class="s08-thumb">
-          <img class="s08-img" src="./tip-launch.png" alt="Accelerate your LMS Launch">
-        </div>
-        <h3 class="s08-title">Accelerate your LMS Launch</h3>
-      </div>
-
-      <div class="s08-card">
-        <div class="s08-thumb">
-          <img class="s08-img" src="./tip-explore.png" alt="Explore more ways to use SimpliTrain">
-        </div>
-        <h3 class="s08-title">Explore more ways to use SimpliTrain</h3>
-      </div>
-
     </div>
 
   </div>
